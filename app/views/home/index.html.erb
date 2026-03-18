@@ -1,0 +1,26 @@
+<h1>宿泊アプリへようこそ</h1>
+
+<div class="login-info">
+  <% if user_signed_in? %>
+    <p>ログイン中: <%= current_user.name %></p>
+  <% else %>
+    <p>ログインしていません</p>
+  <% end %>
+</div>
+
+<h2>施設検索</h2>
+
+<div class="top-search">
+  <%= render "shared/search_form", show_area: false %>
+</div>
+
+<div class="area-section">
+  <h2>エリアから探す</h2>
+  <div class="area-cards">
+    <% ["東京", "大阪", "京都", "福岡"].each do |area| %>
+      <div class="area-card">
+        <%= link_to area, search_rooms_path(area: area) %>
+      </div>
+    <% end %>
+  </div>
+</div>

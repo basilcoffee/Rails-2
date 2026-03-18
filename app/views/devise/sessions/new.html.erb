@@ -1,0 +1,29 @@
+<div class="auth-container">
+
+  <div class="auth-card">
+    <h2>ログイン</h2>
+
+    <%= form_with model: resource, url: session_path(resource_name), local: true do |f| %>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, class: "auth-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: "auth-input" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class: "auth-btn" %>
+      </div>
+
+    <% end %>
+
+    <div class="auth-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+</div>

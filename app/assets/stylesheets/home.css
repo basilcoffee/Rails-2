@@ -1,0 +1,90 @@
+/* ページ全体の余白と文字寄せ */
+body {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-info {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+
+/* トップ検索フォーム */
+.top-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.top-search form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.keyword-search input,
+.area-search select,
+.area-search input[type="radio"] + label {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.keyword-search input {
+  width: 250px;
+}
+
+/* エリアカード */
+.area-section {
+  margin-top: 40px;
+}
+
+.area-cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.area-card {
+  border: 1px solid #ccc;
+  padding: 15px 25px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.area-card:hover {
+  background: #e6f2ff;
+  transform: translateY(-3px);
+}
+
+/* リンクスタイル */
+.area-card a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+

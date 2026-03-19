@@ -9,6 +9,8 @@
   <div class= "room-image">
     <% if @room.image.attached? %>
       <%= image_tag @room.image %>
+    <% else %>
+      <%= image_tag "default_room.png" %>
     <% end %>
   </div>
 

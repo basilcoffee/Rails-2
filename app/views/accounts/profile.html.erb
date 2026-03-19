@@ -1,0 +1,37 @@
+<div class="account-page">
+
+  <div class="account-sidebar">
+    <%= link_to "アカウント設定", account_path, class: "sidebar-item" %>
+    <%= link_to "プロフィール設定", profile_path, class: "sidebar-item" %>
+  </div>
+<div class="setting-container">
+
+  <div class="setting-header">
+    <h2>プロフィール設定</h2>
+    <%= link_to "編集", edit_profile_path, class: "edit-btn" %>
+  </div>
+
+  <div class="setting-table">
+
+    <div class="setting-row">
+      <div class="label">アイコン</div>
+      <div class="value">
+        <% if @user.icon_image.attached? %>
+          <%= image_tag @user.icon_image, class: "profile-icon" %>
+        <% else %>
+          <%= image_tag "default_user.png", class: "profile-icon" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <div class="label">名前</div>
+      <div class="value"><%= @user.name %></div>
+    </div>
+
+    <div class="setting-row">
+      <div class="label">自己紹介</div>
+      <div class="value"><%= @user.introduction %></div>
+    </div>
+  </div>
+</div>

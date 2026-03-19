@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resource :account, only: [:show, :edit, :update]
+  get "account/profile/edit", to: "accounts#edit_profile", as: :edit_profile
+  patch "account/profile", to: "accounts#update_profile"
   root "home#index"
+  get "account/profile", to: "accounts#profile", as: :profile
 
   resources :rooms do
     collection do

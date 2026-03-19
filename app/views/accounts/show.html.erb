@@ -1,0 +1,27 @@
+<div class="account-page">
+
+  <div class="account-sidebar">
+    <%= link_to "アカウント設定", account_path, class: "sidebar-item" %>
+    <%= link_to "プロフィール設定", profile_path, class: "sidebar-item" %>
+  </div>
+
+  <div class="setting-container">
+
+    <div class="setting-header">
+      <h2>アカウント設定</h2>
+      <%= link_to "編集", edit_account_path, class: "edit-btn" %>
+    </div>
+
+    <div class="setting-table">
+
+      <div class="setting-row">
+        <div class="label">メールアドレス</div>
+        <div class="value"><%= @user.email %></div>
+      </div>
+
+      <div class="setting-row">
+        <div class="label">パスワード</div>
+        <div class="value">********</div>
+      </div>
+  </div>
+</div>

@@ -33,7 +33,7 @@
 
       <td><%= number_to_currency(reservation.total_price, unit: "¥", precision: 0) %></td>
 
-      <td><%= reservation.created_at.strftime("%Y/%m/%d/ %H:%M") %></td>
+      <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
     </tr>
   <% end %>
 </table>

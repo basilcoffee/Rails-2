@@ -1,0 +1,38 @@
+<% content_for :header_search do %>
+  <%= render "shared/search_form", show_area: true %>
+<% end %>
+<% if @rooms.any? %>
+  <p><%= @rooms.count %>件が見つかりました</p>
+
+  <div class="room-results">
+
+    <% @rooms.each do |room| %>
+
+      <div class="room-card">
+
+        <div class="room-image">
+          <% if room.image.attached? %>
+            <%= image_tag room.image %>
+          <% else %>
+            <%= image_tag "default_room.png" %>
+          <% end %>
+        </div>
+        <div class="room-info">
+
+          <h3><%= room.name %></h3>
+
+          <p class="room-address"><%= room.address %></p>
+
+          <p class="room-intro"><%= truncate(room.introduction, length: 60) %></p>
+
+          <div class="room-bottom">
+           <p class="room-price"> <%= yen(room.price) %></p>
+            <%= link_to "詳細はこちら", room_path(room), class: "detail-btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+ <p>該当する施設が見当たりませんでした</p>
+<% end %>

@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  resource :account, only: [:show, :edit, :update]
+  get "account/profile/edit", to: "accounts#edit_profile", as: :edit_profile
+  patch "account/profile", to: "accounts#update_profile"
+  root "home#index"
+  get "account/profile", to: "accounts#profile", as: :profile
+
+  resources :rooms do
+    collection do
+      get :search
+    end
+
+    resources :reservations do
+      collection do
+        post :confirm
+      end
+    end
+  end
+
+  resources :reservations, only: [:index]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

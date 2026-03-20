@@ -1,0 +1,18 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      new:
+        sign_in: "ログイン"
+    registrations:
+      new:
+        sign_up: "新規登録"
+    passwords:
+      new:
+        forgot_your_password: "パスワードをお忘れですか？"
+    shared:
+      links:
+        sign_in: "ログイン"
+        sign_up: "新規登録"
+        forgot_your_password: "パスワードをお忘れですか？"

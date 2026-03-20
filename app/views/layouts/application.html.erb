@@ -18,6 +18,14 @@
   </head>
 
   <body>
-    <%= yield %>
+
+  <% if content_for?(:header) %>
+    <%= yield :header %>
+  <% else %>
+    <%= render "shared/header" %>
+  <% end %>
+
+  <%= yield %>
+
   </body>
 </html>

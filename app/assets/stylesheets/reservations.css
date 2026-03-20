@@ -1,0 +1,116 @@
+.reservation {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.intro-text {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* 予約確認画面　*/
+.reservation-confirm-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reservation-confirm {
+  border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reservation-confirm th,
+.reservation-confirm td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.reservation-confirm th {
+  background-color: #f5f5f5;
+  text-align: left;
+  width: 40%;
+}
+
+.confirm-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.submit-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #007bff;
+}
+
+.cancel-btn {
+  background-color: #999;
+}
+
+/* 予約一覧 */
+
+.reservation-list {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto;
+}
+
+.reservation-list th,
+.reservation-list td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.reservation-list th {
+  background: #f5f5f5;
+  white-space: nowrap;
+}
+
+.reservation-list td:nth-child(1) {
+  width: 120px;
+}
+
+.reservation-list td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+  text-align: left;
+}
+
+.reservation-list td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.room-reservation{
+  margin-top:20px;
+  padding:15px;
+  border:1px solid #ddd;
+  width:250px;
+}
+
+.room-reservation div{
+  margin-bottom:10px;
+}
+
+.room-reservation input{
+  width:100%;
+}

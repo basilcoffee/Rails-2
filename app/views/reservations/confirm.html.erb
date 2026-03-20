@@ -1,0 +1,42 @@
+<div class= "reservation-confirm-container">
+  <h2>予約内容の確認</h2>
+
+  <table class="reservation-confirm">
+
+    <tr>
+      <th>施設名</th>
+      <td><%= @room.name %></td>
+    </tr>
+    <tr>
+      <th>チェックイン</th>
+      <td><%= @reservation.check_in&.strftime("%Y/%m/%d") %></td>
+    </tr>
+    <tr>
+      <th>チェックアウト</th>
+      <td><%= @reservation.check_out&.strftime("%Y/%m/%d") %></td>
+    </tr>
+    <tr>
+      <th>人数</th>
+      <td><%= @reservation.people %>人</td>
+    </tr>
+    <tr>
+      <th>宿泊日数</th>
+      <td><%= @reservation.days %>日</td>
+    </tr>
+    <tr>
+      <th>合計料金</th>
+      <td><%= yen(@reservation.total_price) %></td>
+    </tr>
+  </table>
+  <div class= "confirm-actions">
+    <%= form_with model: [@room, @reservation], local: true, data:{turbo: false} do |f| %>
+
+      <%= f.hidden_field :check_in %>
+      <%= f.hidden_field :check_out %>
+      <%= f.hidden_field :people %>
+
+      <%= f.submit "予約を確定する", class: "submit-btn" %>
+      <%= link_to "キャンセル", room_path(@room), class: "cancel-btn" %>
+    <% end %>
+  </div>
+</div>

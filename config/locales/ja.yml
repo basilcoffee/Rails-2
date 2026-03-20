@@ -1,0 +1,34 @@
+ja:
+  activerecord:
+    models:
+      room: "施設"
+      user: "ユーザー"
+      reservation: "予約"
+    attributes:
+      room:
+        name: "ルーム名"
+        introduction: "紹介"
+        price: "料金"
+        address: "住所"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        introduction: "自己紹介"
+      reservation:
+        check_in: "チェックイン"
+        check_out: "チェックアウト"
+        people: "人数"
+    errors:
+      models:
+        room:
+          attributes:
+            name:
+              blank: "を入力してください"
+            introduction:
+              blank: "を入力してください"
+            price:
+              blank: "を入力してください"
+              greater_than_or_equal_to: "は1以上の値にしてください"
+            address:
+              blank: "を入力してください"

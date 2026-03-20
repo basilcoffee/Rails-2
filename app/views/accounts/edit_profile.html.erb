@@ -1,0 +1,52 @@
+<div class="account-page">
+  <div class="account-sidebar">
+    <%= link_to "アカウント設定", account_path, class: "sidebar-item" %>
+    <%= link_to "プロフィール設定", profile_path, class: "sidebar-item" %>
+  </div>
+
+  <div class="account-content">
+
+    <div class="account-header">
+      <h2>プロフィール編集</h2>
+    </div>
+
+    <%= form_with model: @user, url: profile_path, method: :patch, html: { multipart: true }, local: true do |f| %>
+
+      <div class="form-row">
+        <div class="label">現在のアイコン</div>
+        <div class="form-field">
+          <% if @user.icon_image&.attached? %>
+            <%= image_tag @user.icon_image, class: "profile-icon" %>
+          <% else %>
+            <%= image_tag "default_user.png", class: "profile-icon" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="label">画像アップロード</div>
+        <div class="form-field">
+          <%= f.file_field :icon_image %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="label">名前</div>
+        <div class="form-field">
+          <%= f.text_field :name, class: "form-input" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="label">自己紹介</div>
+        <div class="form-field">
+          <%= f.text_area :introduction, class: "form-input" %>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <%= f.submit "更新する", class: "form-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

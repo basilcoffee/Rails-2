@@ -1,0 +1,41 @@
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <div class="logo">
+      <%= link_to "宿泊アプリ", root_path %>
+    </div>
+
+    <div class="header-center">
+      <%= yield :header_search %>
+    </div>
+
+    <div class="header-right">
+
+      <% if user_signed_in? %>
+
+        <div class="user-menu">
+           <button class="user-button">
+              <% if current_user.icon_image.present? %>
+                <%= image_tag current_user.icon_image, class: "user-icon" %>
+              <% else %>
+                <%= image_tag "default_user.png", class: "user-icon" %>
+              <% end %>
+              <span><%= current_user.name %></span>
+            </button>
+
+          <div class="dropdown-menu">
+            <%= link_to "施設の新規登録", new_room_path %>
+            <%= link_to "施設一覧", rooms_path %>
+            <%= link_to "予約一覧", reservations_path %>
+            <%= link_to "アカウント設定", account_path %>
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "btn signup-btn" %>
+      <% end %>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,20 @@
+<%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+
+  <div class="search-row">
+
+    <% if show_area %>
+      <%= f.select :area,
+        [["東京", "東京"], ["大阪", "大阪"], ["京都", "京都"], ["札幌", "札幌"]],{ include_blank: "エリア選択" },
+        class: "search-area"
+      %>
+    <% else %>
+      <%= f.hidden_field :area, value: params[:area] %>
+    <% end %>
+
+    <%= f.text_field :keyword,value: params[:keyword], placeholder: "キーワード検索", class: "search-input" %>
+
+    <%= f.submit "検索", class: "search-btn" %>
+
+  </div>
+
+<% end %>

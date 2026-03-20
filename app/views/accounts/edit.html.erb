@@ -1,0 +1,44 @@
+<div class="account-page">
+
+  <div class="account-sidebar">
+    <%= link_to "アカウント設定", account_path, class: "sidebar-item" %>
+    <%= link_to "プロフィール設定", profile_path, class: "sidebar-item" %>
+  </div>
+
+  <div class="account-content">
+
+    <div class="account-header">
+      <h2>アカウント編集</h2>
+    </div>
+
+    <%= form_with model: @user, url: account_path, method: :patch, local: true do |f| %>
+
+      <div class="form-row">
+        <div class="label">メールアドレス</div>
+        <div class="form-field">
+          <%= f.email_field :email, class: "form-input" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="label">パスワード</div>
+        <div class="form-field">
+          <%= f.password_field :password, class: "form-input" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="label">パスワード確認</div>
+        <div class="form-field">
+          <%= f.password_field :password_confirmation, class: "form-input" %>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <%= f.submit "更新する", class: "form-btn" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

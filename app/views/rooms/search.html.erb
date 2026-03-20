@@ -26,7 +26,7 @@
           <p class="room-intro"><%= truncate(room.introduction, length: 60) %></p>
 
           <div class="room-bottom">
-           <p class="room-price"> <%= number_to_currency(room.price, unit: "¥", precision: 0) %></p>
+           <p class="room-price"> <%= yen(room.price) %></p>
             <%= link_to "詳細はこちら", room_path(room), class: "detail-btn" %>
           </div>
         </div>

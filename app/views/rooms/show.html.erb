@@ -18,7 +18,7 @@
     <div class= "room-header">
       <h2><%= @room.name %></h2>
       <div class= "room-price">
-        <%= number_to_currency(@room.price, unit: "¥", precision: 0) %>
+        <%= yen(@room.price) %>
       </div>
     </div>
 
@@ -27,7 +27,16 @@
     </p>
 
     <div class= "room-reservation">
-      <%= form_with model: [@room, @reservation],
+      <% if @reservation.errors.any? %>
+        <div class="error-messages">
+          <ul>
+            <% @reservation.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with model: @reservation,
         url: confirm_room_reservations_path(@room),
         method: :post,
         local: true,

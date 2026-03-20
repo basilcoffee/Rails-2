@@ -3,7 +3,6 @@
   <div class="search-row">
 
     <% if show_area %>
-      <!-- コンパクト用（ヘッダー） -->
       <%= f.select :area,
         [["東京", "東京"], ["大阪", "大阪"], ["京都", "京都"], ["札幌", "札幌"]],{ include_blank: "エリア選択" },
         class: "search-area"

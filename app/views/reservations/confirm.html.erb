@@ -9,11 +9,11 @@
     </tr>
     <tr>
       <th>チェックイン</th>
-      <td><%= @reservation.check_in.strftime("%Y/%m/%d") %></td>
+      <td><%= @reservation.check_in&.strftime("%Y/%m/%d") %></td>
     </tr>
     <tr>
       <th>チェックアウト</th>
-      <td><%= @reservation.check_out.strftime("%Y/%m/%d") %></td>
+      <td><%= @reservation.check_out&.strftime("%Y/%m/%d") %></td>
     </tr>
     <tr>
       <th>人数</th>
@@ -25,7 +25,7 @@
     </tr>
     <tr>
       <th>合計料金</th>
-      <td><%= number_to_currency(@reservation.total_price, unit: "¥", precision: 0) %></td>
+      <td><%= yen(@reservation.total_price) %></td>
     </tr>
   </table>
   <div class= "confirm-actions">

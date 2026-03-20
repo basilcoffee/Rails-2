@@ -31,7 +31,7 @@
 
       <td><%= reservation.check_out.strftime("%Y/%m/%d") %></td>
 
-      <td><%= number_to_currency(reservation.total_price, unit: "¥", precision: 0) %></td>
+      <td><%= yen(reservation.total_price) %></td>
 
       <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
     </tr>

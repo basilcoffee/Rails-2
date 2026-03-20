@@ -9,6 +9,10 @@ class ReservationsController < ApplicationController
     @room = Room.find(params[:room_id])
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.room = @room
+
+    if @reservation.invalid?
+      render "rooms/show"
+    end
   end
 
   def create
@@ -20,6 +24,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to rooms_path, notice: "予約しました"
     else
+       @room = Room.find(params[:room_id])
+       @reservation = current_user.reservations.build(reservation_params)
       render "rooms/show"
     end
   end

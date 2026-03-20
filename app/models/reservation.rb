@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   belongs_to :room
 
   validates :check_in, :check_out, :people, presence: true
-  validates :people, numericality: { greater_than: 0 }
+  validates :people, numericality: { only_integer: true, greater_than: 0 }
   validate :check_out_after_check_in
   validate :check_in_not_in_past
 
@@ -13,8 +13,8 @@ class Reservation < ApplicationRecord
   end
 
   def total_price
-    return 0 if room.blank?
-    room.price * people * days
+    return 0 unless room && people && days > 0
+    room.price.to_i * people.to_i * days
   end
 
   private
